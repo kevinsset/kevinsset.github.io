@@ -192,16 +192,16 @@ function checkValidation(){
 						if(board[y][x].fix_value == board[i][x].fix_value){
 							duplicate = true;
 							board[y][x].is_duplicate = true;
-							board[y][i].is_duplicate = true;
+							board[i][x].is_duplicate = true;
 							break;
 						}
 					}
 				}
 				
 				for(var n=0; n<3; n++){
-					var group_y = this.quad_y*3 + n;
+					var group_y = board[y][x].quad_y*3 + n;
 					for(var m=0; m<3; m++){
-						var group_x = this.quad_x*3 + m;
+						var group_x = board[y][x].quad_x*3 + m;
 						if(group_y != y || group_x != x){
 							if(board[y][x].fix_value == board[group_y][group_x].fix_value){
 								duplicate = true;
@@ -392,7 +392,7 @@ function solve(){
 		inp[i].setAttribute('readonly', 'readonly');
 	}
 	
-	if(checkValidation){
+	if(checkValidation()){
 		constraintProgramming();
 	}
 	showResult();
