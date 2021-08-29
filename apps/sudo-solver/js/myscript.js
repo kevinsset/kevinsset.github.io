@@ -247,25 +247,38 @@ function initBoard(){
 
 function backTrack(){
 	var i = 0;
+	const ghost_u = new Array();
 	const ghost = new Array();
 	var solvable = true;
 	for(var y=0; y<9; y++){
 		for(var x=0; x<9; x++){
 			if(board[y][x].fix_value == null){
-				ghost[i] = new Array();
-				ghost[i]['x'] = x;
-				ghost[i]['y'] = y;
-				ghost[i]['quad_x'] = board[y][x].quad_x;
-				ghost[i]['quad_y'] = board[y][x].quad_y;
-				ghost[i]['prob'] = new Array();
+				ghost_u[i] = new Array();
+				ghost_u[i]['x'] = x;
+				ghost_u[i]['y'] = y;
+				ghost_u[i]['quad_x'] = board[y][x].quad_x;
+				ghost_u[i]['quad_y'] = board[y][x].quad_y;
+				ghost_u[i]['prob'] = new Array();
 				for(var c=0; c<board[y][x].prob_value.length; c++){
-					ghost[i]['prob'][c] = board[y][x].prob_value[c];
+					ghost_u[i]['prob'][c] = board[y][x].prob_value[c];
 				}
-				ghost[i]['i_prob'] = 0;
+				ghost_u[i]['i_prob'] = 0;
 				i++;
 			}
 		}
 	}
+	
+	var c_prob = 2;
+	var i_ghost = 0;
+	do{
+		for(var ig=0; ig<ghost_u.length; ig++){
+			if(ghost_u[ig]['prob'].length == c_prob){
+				ghost[i_ghost] = ghost_u[ig];
+				i_ghost++;
+			}
+		}
+		c_prob++;
+	} while (i_ghost < ghost_u.length);
 	
 	for(var l=0; l<ghost.length; l++){
 		if(l == -1){
@@ -284,10 +297,12 @@ function backTrack(){
 				ghost[l]['i_prob']++;
 				
 				if(ghost_check == false){
+					board[ghost[l]['y']][ghost[l]['x']].ghost_value = null;
 					ghost[l]['i_prob'] = 0;
 					l = l-2;
 				}
 			} else {
+				board[ghost[l]['y']][ghost[l]['x']].ghost_value = null;
 				ghost[l]['i_prob'] = 0;
 				l = l-2;
 			}
@@ -383,7 +398,6 @@ function showMessage(){
 function solve(){
 	var startTime, endTime;
 	startTime = new Date();
-	
 	constructBoard();
 	initBoard();
 	
