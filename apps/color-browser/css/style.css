@@ -1,0 +1,231 @@
+body {
+	background-color: rgb(0, 0, 0);
+	padding-top: 50px;
+}
+
+.wrapper {
+	
+}
+
+.content {
+	margin: auto;
+	background-color: black;
+	border: 2px solid white;
+	width: 1060px;
+	height: 570px;
+	border-radius: 25px;
+}
+
+.outer-table {
+	border-spacing: 0px;
+	width: 1060px;
+	height: 500px;
+	padding-bottom: 5px;
+	display: table;
+}
+
+.main-input {
+	display: table-row;
+}
+
+.row-name {
+	width: 300px;
+	text-align: center;
+	font-size: 20px;
+	color: white;
+	height: 20px;
+	padding-top: 25px;
+	padding-bottom: 10px;
+}
+
+.base-red {
+	margin: 0px;
+	padding-left: 40px;
+	padding-right: 20px;
+	width: 300px;
+	display: table-cell;
+}
+
+.base-green {
+	margin: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 300px;
+	display: table-cell;
+}
+
+.base-blue {
+	margin: 0px;
+	padding-left: 20px;
+	padding-right: 40px;
+	width: 300px;
+	display: table-cell;
+}
+
+.inner-content {
+	display: table-cell;
+}
+
+.canvas-holder {
+	height: 300px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.table-holder {
+	width: 256px;
+	height: 256px;
+	background-color: white;
+	padding: 22px;
+}
+
+.canvas {
+	width: 256px;
+	height: 256px;
+	display: table;
+}
+
+.base-red .canvas-holder .table-holder:hover {
+	background-image: url("../images/red-cv-bg.png")
+}
+
+.base-green .canvas-holder .table-holder:hover {
+	background-image: url("../images/green-cv-bg.png")
+}
+
+.base-blue .canvas-holder .table-holder:hover {
+	background-image: url("../images/blue-cv-bg.png")
+}
+
+.input-holder {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.slidecontainer {
+	width: 256px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#range-red {
+	background-image: linear-gradient(to right, rgb(0,0,0), rgb(255,0,0));
+}
+
+#range-green {
+	background-image: linear-gradient(to right, rgb(0,0,0), rgb(0,255,0));
+}
+
+#range-blue {
+	background-image: linear-gradient(to right, rgb(0,0,0), rgb(0,0,255));
+}
+
+.slider {
+	-webkit-appearance: none;
+	width: 256px;
+	height: 25px;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .5s;
+	transition: opacity .5s;
+	margin: 0px;
+	border: 1px solid white;
+}
+
+.slider:hover {
+	opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 6px;
+	height: 25px;
+	background: #FFFFFF;
+	cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+	width: 6px;
+	height: 25px;
+	background: #FFFFFF;
+	cursor: pointer;
+}
+
+.value-holder {
+	width: 56px;
+	padding: 5px 5px;
+	font-size: 16px;
+	margin: 0px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	text-align: center;
+	outline: none;
+}
+
+.redValue {
+	border: 3px solid rgb(255,0,0);
+	background-color: rgb(255,150,150);
+	color: black;
+}
+
+.redValue:focus {
+	border: 3px solid rgb(255,150,150);
+	background-color: rgb(255,0,0);
+	color: white;
+}
+
+.greenValue {
+	border: 3px solid rgb(0,255,0);
+	background-color: rgb(150,255,150);
+	color: black;
+}
+
+.greenValue:focus {
+	border: 3px solid rgb(150,255,150);
+	background-color: rgb(0,255,0);
+	color: black;
+}
+
+.blueValue {
+	border: 3px solid rgb(0,0,255);
+	background-color: rgb(150,150,255);
+	color: black;
+}
+
+.blueValue:focus {
+	border: 3px solid rgb(150,150,255);
+	background-color: rgb(0,0,255);
+	color: white;
+}
+
+.value-row {
+	width: 300px;
+	display: table-cell;
+}
+
+.alt-input {
+	display: table;
+	width: 1060px;
+}
+
+.hex-holder {
+	width: 100%;
+	text-align: center;
+}
+
+#hexValue {
+	width: 96px;
+	height: 40px;
+	padding: 5px 5px;
+	font-size: 18px;
+	margin: 0px;
+	box-sizing: border-box;
+	border-radius: 4px;
+	text-align: center;
+	outline: none;
+	border: 3px solid rgb(150,150,150);
+	background-color: rgb(200,200,200);
+	color: black;
+}

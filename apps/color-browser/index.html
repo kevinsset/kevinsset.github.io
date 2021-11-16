@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Color Browser</title>
+		<!--<link rel = "icon" 
+			href = "icons/su-so_1.png" 
+			type = "image/x-icon"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/myscript.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="content">
+				<div class="outer-table">
+					<div class="main-input">
+						<div class="inner-content">
+							<div class="base-red">
+								<div class="row-name">
+									Red
+								</div>
+								<div class="canvas-holder">
+									<div class="table-holder">
+										<canvas class="canvas" id="canvas-red" width="256" height="256">
+										</canvas>
+									</div>
+								</div>
+								<div class="input-holder">
+									<div class="slidecontainer">
+										<input type="range" min="0" max="255" value="0" class="slider" id="range-red" title="Red Color Slider" />
+									</div>
+								</div>
+								<div class="input-holder">
+									<div class="value-row">
+										<input type="text" class="value-holder redValue" id="redValueDec" maxlength=3 title="Red Color Value" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="inner-content">
+							<div class="base-green">
+								<div class="row-name">
+									Green
+								</div>
+								<div class="canvas-holder">
+									<div class="table-holder">
+										<canvas class="canvas" id="canvas-green" width="256" height="256">
+										</canvas>
+									</div>
+								</div>
+								<div class="input-holder">
+									<div class="slidecontainer">
+										<input type="range" min="0" max="255" value="0" class="slider" id="range-green" title="Green Color Slider" />
+									</div>
+								</div>
+								<div class="input-holder">
+									<div class="value-row">
+										<input type="text" class="value-holder greenValue" id="greenValueDec" maxlength=3 title="Green Color Value" />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="inner-content">
+							<div class="base-blue">
+								<div class="row-name">
+									Blue
+								</div>
+								<div class="canvas-holder">
+									<div class="table-holder">
+										<canvas class="canvas" id="canvas-blue" width="256" height="256">
+										</canvas>
+									</div>
+								</div>
+								<div class="input-holder">
+									<div class="slidecontainer">
+										<input type="range" min="0" max="255" value="0" class="slider" id="range-blue" title="Blue Color Slider" />
+									</div>
+								</div>
+								<div class="input-holder">
+									<div class="value-row">
+										<input type="text" class="value-holder blueValue" id="blueValueDec" maxlength=3 title="Blue Color Value" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="alt-input">
+					<div class="hex-holder">
+						<input type="text" id="hexValue" maxlength=6 title="Background Color Hex Value" value="000000" />
+					</div>
+				</div>
+				<!--<table class="outer-table">
+					<tr>
+						<td class="base-red row-name">
+							Red
+						</td>
+						<td class="base-green row-name">
+							Green
+						</td>
+						<td class="base-blue row-name">
+							Blue
+						</td>
+					</tr>
+					<tr>
+						<td class="base-red canvas-holder">
+							<div class="table-holder">
+								<canvas class="canvas" id="canvas-red" width="256" height="256">
+								</canvas>
+							</div>
+						</td>
+						<td class="base-green canvas-holder">
+							<div class="table-holder">
+								<canvas class="canvas" id="canvas-green" width="256" height="256">
+								</canvas>
+							</div>
+						</td>
+						<td class="base-blue canvas-holder">
+							<div class="table-holder">
+								<canvas class="canvas" id="canvas-blue" width="256" height="256">
+								</canvas>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="base-red input-holder">
+							<div class="slidecontainer">
+								<input type="range" min="0" max="255" value="0" class="slider" id="range-red">
+							</div>
+						</td>
+						<td class="base-green input-holder">
+							<div class="slidecontainer">
+								<input type="range" min="0" max="255" value="0" class="slider" id="range-green">
+							</div>
+						</td>
+						<td class="base-blue input-holder">
+							<div class="slidecontainer">
+								<input type="range" min="0" max="255" value="0" class="slider" id="range-blue">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="base-red input-holder">
+							<div class="value-row">
+								<div class="value-cell">
+									Dec :
+									<input type="text" class="value-holder redValue" id="redValueDec" maxlength=3>
+								</div>
+								<div class="value-cell">
+									Hex :
+									<input type="text" class="value-holder redValue" id="redValueHex" maxlength=2>
+								</div>
+							</div>
+						</td>
+						<td class="base-green input-holder">
+							<div class="value-row">
+								<div class="value-cell">
+									Dec :
+									<input type="text" class="value-holder greenValue" id="greenValueDec" maxlength=3>
+								</div>
+								<div class="value-cell">
+									Hex :
+									<input type="text" class="value-holder greenValue" id="greenValueHex" maxlength=2>
+								</div>
+							</div>
+						</td>
+						<td class="base-blue input-holder">
+							<div class="value-row">
+								<div class="value-cell">
+									Dec :
+									<input type="text" class="value-holder blueValue" id="blueValueDec" maxlength=3>
+								</div>
+								<div class="value-cell">
+									Hex :
+									<input type="text" class="value-holder blueValue" id="blueValueHex" maxlength=2>
+								</div>
+							</div>
+							
+						</td>
+					</tr>
+				</table>-->
+			</div>
+		</div>
+	</body>
+</html>
