@@ -1,26 +1,23 @@
 body {
 	background-color: rgb(0, 0, 0);
 	padding-top: 50px;
-}
-
-.wrapper {
-	
+	padding-bottom: 50px;
 }
 
 .content {
 	margin: auto;
 	background-color: black;
 	border: 2px solid white;
-	width: 1060px;
-	height: 570px;
+	width: 350px;
+	height: 1600px;
 	border-radius: 25px;
 }
 
 .outer-table {
 	border-spacing: 0px;
-	width: 1060px;
-	height: 500px;
-	padding-bottom: 5px;
+	width: 350px;
+	height: 1521px;
+	padding-bottom: 0px;
 	display: table;
 }
 
@@ -40,30 +37,36 @@ body {
 
 .base-red {
 	margin: 0px;
-	padding-left: 40px;
-	padding-right: 20px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 15px;
 	width: 300px;
 	display: table-cell;
+	border-bottom: 2px dashed #dddddd;
 }
 
 .base-green {
 	margin: 0px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 15px;
 	width: 300px;
 	display: table-cell;
+	border-bottom: 2px dashed #dddddd;
 }
 
 .base-blue {
 	margin: 0px;
-	padding-left: 20px;
-	padding-right: 40px;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-bottom: 15px;
 	width: 300px;
 	display: table-cell;
+	border-bottom: 2px dashed #dddddd;
 }
 
 .inner-content {
-	display: table-cell;
+	display: table-row;
 }
 
 .canvas-holder {
@@ -207,7 +210,8 @@ body {
 
 .alt-input {
 	display: table;
-	width: 1060px;
+	width: 350px;
+	padding-top: 20px;
 }
 
 .hex-holder {
@@ -228,4 +232,52 @@ body {
 	border: 3px solid rgb(150,150,150);
 	background-color: rgb(200,200,200);
 	color: black;
+}
+
+@media only screen and (min-width: 1060px) {
+	
+	.content {
+		margin: auto;
+		border: 2px solid white;
+		width: 1060px;
+		height: 570px;
+	}
+	
+	.outer-table {
+		width: 1060px;
+		height: 500px;
+		display: table;
+		padding-bottom: 5px;
+	}
+	
+	.inner-content {
+		display: table-cell;
+	}
+	
+	.base-red {
+		padding-left: 40px;
+		padding-right: 20px;
+		padding-bottom: 0px;
+		border: none;
+	}
+	
+	.base-green {
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-bottom: 0px;
+		border: none;
+	}
+
+	.base-blue {
+		padding-left: 20px;
+		padding-right: 40px;
+		padding-bottom: 0px;
+		border: none;
+	}
+	
+	.alt-input {
+		width: 1060px;
+		padding-top: 0px;
+	}
+	
 }
