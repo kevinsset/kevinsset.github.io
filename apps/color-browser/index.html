@@ -2,97 +2,306 @@
 <html lang="en">
 	<head>
 		<title>Color Browser</title>
-		<!--<link rel = "icon" 
-			href = "icons/su-so_1.png" 
-			type = "image/x-icon"> -->
+		<link rel = "icon" 
+			href = "images/icons/cube_color.png" 
+			type = "image/x-icon">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 		<meta content="utf-8" http-equiv="encoding">
 		<link rel="stylesheet" href="css/style.css">
 		<script src="js/myscript.js"></script>
+		<!--
+		
+				<===========================================================================>
+				<																			>
+				<				You could not live with your own curiousity,				>
+				<				and where did that bring you?								>
+				<				Back to me...												>
+				<																			>
+				<===========================================================================>
+				
+		-->
 	</head>
 	<body>
 		<div class="wrapper">
-			<div class="content">
-				<div class="outer-table">
+			<div id="content-cube">
+				<div class="cube-top-row">
 					<div class="main-input">
-						<div class="inner-content">
-							<div class="base-red">
-								<div class="row-name">
+						<div class="cube-content">
+							<div class="cube-red">
+								<div class="cube-name">
 									Red
 								</div>
-								<div class="canvas-holder">
-									<div class="table-holder">
-										<canvas class="canvas" id="canvas-red" width="256" height="256">
+								<div class="cube-canvas-holder">
+									<div class="cube-canvas-container">
+										<canvas class="cube-canvas" id="canvas-red" width="256" height="256">
 										</canvas>
 									</div>
 								</div>
 								<div class="input-holder">
-									<div class="slidecontainer">
-										<input type="range" min="0" max="255" value="0" class="slider" id="range-red" title="Red Color Slider" />
+									<div class="slide-container">
+										<input type="range" min="0" max="255" value="0" class="slider" id="range-red" title="Red Color Slider" oninput="synColor(this, 'slider', 'red');" />
 									</div>
 								</div>
 								<div class="input-holder">
-									<div class="value-row">
-										<input type="text" class="value-holder redValue" id="redValueDec" maxlength=3 title="Red Color Value" />
+									<div class="cube-value-row">
+										<input type="text" class="cube-value-holder redValue" id="redValueDec" maxlength=3 title="Red Color Value" value="0" onblur="synColor(this, 'input', 'red');" />
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="inner-content">
-							<div class="base-green">
-								<div class="row-name">
+						<div class="cube-content">
+							<div class="cube-green">
+								<div class="cube-name">
 									Green
 								</div>
-								<div class="canvas-holder">
-									<div class="table-holder">
-										<canvas class="canvas" id="canvas-green" width="256" height="256">
+								<div class="cube-canvas-holder">
+									<div class="cube-canvas-container">
+										<canvas class="cube-canvas" id="canvas-green" width="256" height="256">
 										</canvas>
 									</div>
 								</div>
 								<div class="input-holder">
-									<div class="slidecontainer">
-										<input type="range" min="0" max="255" value="0" class="slider" id="range-green" title="Green Color Slider" />
+									<div class="slide-container">
+										<input type="range" min="0" max="255" value="0" class="slider" id="range-green" title="Green Color Slider" oninput="synColor(this, 'slider', 'green');" />
 									</div>
 								</div>
 								<div class="input-holder">
-									<div class="value-row">
-										<input type="text" class="value-holder greenValue" id="greenValueDec" maxlength=3 title="Green Color Value" />
+									<div class="cube-value-row">
+										<input type="text" class="cube-value-holder greenValue" id="greenValueDec" maxlength=3 title="Green Color Value" value="0" onblur="synColor(this, 'input', 'green');" />
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="inner-content">
-							<div class="base-blue">
-								<div class="row-name">
+						<div class="cube-content">
+							<div class="cube-blue">
+								<div class="cube-name">
 									Blue
 								</div>
-								<div class="canvas-holder">
-									<div class="table-holder">
-										<canvas class="canvas" id="canvas-blue" width="256" height="256">
+								<div class="cube-canvas-holder">
+									<div class="cube-canvas-container">
+										<canvas class="cube-canvas" id="canvas-blue" width="256" height="256">
 										</canvas>
 									</div>
 								</div>
 								<div class="input-holder">
-									<div class="slidecontainer">
-										<input type="range" min="0" max="255" value="0" class="slider" id="range-blue" title="Blue Color Slider" />
+									<div class="slide-container">
+										<input type="range" min="0" max="255" value="0" class="slider" id="range-blue" title="Blue Color Slider" oninput="synColor(this, 'slider', 'blue');" />
 									</div>
 								</div>
 								<div class="input-holder">
-									<div class="value-row">
-										<input type="text" class="value-holder blueValue" id="blueValueDec" maxlength=3 title="Blue Color Value" />
+									<div class="cube-value-row">
+										<input type="text" class="cube-value-holder blueValue" id="blueValueDec" maxlength=3 title="Blue Color Value" value="0" onblur="synColor(this, 'input', 'blue');" />
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="alt-input">
-					<div class="hex-holder">
-						<input type="text" id="hexValue" maxlength=6 title="Background Color Hex Value" value="000000" />
+				<div class="cube-bot_row">
+					<div class="cube-hex-holder">
+						<input type="text" id="hexValue" class="hexInput" maxlength=6 title="Background Color Hex Value" value="000000" onBlur="syncByHex();" />
 					</div>
 				</div>
 			</div>
+			<div id="content-gradation">
+				<div class="grad-top-row">
+					<div class="main-input">
+						<div class="half-col">
+							<div class="col-input-grad">
+								<p class="input-label">
+									Color 1
+								</p>
+								<div class="input-holder">
+									<input type="text" id="grad-color1" class="hexInput" maxlength=6 value="000000" onblur="redrawGradA(this, 'preview-grad1')" />
+								</div>
+								<div class="preview-holder">
+									<div class="color-preview" id="preview-grad1"></div>
+								</div>
+							</div>
+						</div>
+						<div class="half-col">
+							<div class="col-input-grad">
+								<p class="input-label">
+									Color 2
+								</p>
+								<div class="input-holder">
+									<input type="text" id="grad-color2" class="hexInput" maxlength=6 value="000000" onblur="redrawGradB(this, 'preview-grad2')" />
+								</div>
+								<div class="preview-holder">
+									<div class="color-preview" id="preview-grad2"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="grad-mid-row">
+					<div class="main-input">
+						<div class="full-col">
+							<div class="grad-canvas-holder">
+								<div class="grad-canvas-frame">
+									<canvas class="canvas-grad" id="canvas-gradation" width="256" height="90">
+									</canvas>
+								</div>
+							</div>
+							<div class="opt-holder">
+								<div class="opt-by3">
+									<label>
+										<input type="radio" class="opt-color" id="opt-grad-8" name="grad-type" value="8" onchange="redrawGradOpt();" >
+										<img src="images/icons/8_part.png">
+									</label>
+								</div>
+								<div class="opt-by3">
+									<label>
+										<input type="radio" class="opt-color" id="opt-grad-16" name="grad-type" value="16" onchange="redrawGradOpt();" >
+										<img src="images/icons/16_part.png">
+									</label>
+								</div>
+								<div class="opt-by3">
+									<label>
+										<input type="radio" class="opt-color" id="opt-grad-smooth" name="grad-type" value="256" checked onchange="redrawGradOpt();" >
+										<img src="images/icons/256_part.png">
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="grad-bot-row">
+					<div class="field-preview" id="grad-preview">
+						<div class="info-col">
+							<p class="info-label-bar">Red</p>
+							<p class="info-value-bar" id="grad-red-info">-</p>
+							<p class="info-label-bar">Green</p>
+							<p class="info-value-bar" id="grad-green-info">-</p>
+							<p class="info-label-bar">Blue</p>
+							<p class="info-value-bar" id="grad-blue-info">-</p>
+							<p class="info-label-bar">Hex</p>
+							<p class="info-value-bar" id="grad-hex-info">-</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="content-contrastion">
+				<div class="contra-top-row">
+					<div class="main-input">
+						<div class="full-col">
+							<p class="input-label">
+								Base Color
+							</p>
+							<div class="input-holder">
+								<input type="text" id="contra-color" class="hexInput" maxlength=6 value="000000" onblur="redrawContra(this, 'preview-base-contra')" />
+							</div>
+							<div class="preview-holder">
+								<div class="color-preview" id="preview-base-contra"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="contra-mid-row">
+					<div class="main-input">
+						<div class="half-col">
+							<div class="col-input-contra">
+								<div class="contra-canvas-holder">
+									<div class="contra-canvas-frame">
+										<canvas class="canvas-contra" id="canvas-contra-dark" width="256" height="90">
+										</canvas>
+									</div>
+								</div>
+								<div class="opt-holder">
+									<div class="opt-by3">
+										<label>
+											<input type="radio" class="opt-color" id="opt-contra-dark-8" name="contra-dark-type" value="8" onchange="redrawContraOpt();" >
+											<img src="images/icons/8_part.png">
+										</label>
+									</div>
+									<div class="opt-by3">
+										<label>
+											<input type="radio" class="opt-color" id="opt-contra-dark-16" name="contra-dark-type" value="16" onchange="redrawContraOpt();" >
+											<img src="images/icons/16_part.png">
+										</label>
+									</div>
+									<div class="opt-by3">
+										<label>
+											<input type="radio" class="opt-color" id="opt-contra-dark-smooth" name="contra-dark-type" value="256" checked onchange="redrawContraOpt();" >
+											<img src="images/icons/256_part.png">
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="half-col">
+							<div class="col-input-contra">
+								<div class="contra-canvas-holder">
+									<div class="contra-canvas-frame">
+										<canvas class="canvas-contra" id="canvas-contra-light" width="256" height="90">
+										</canvas>
+									</div>
+								</div>
+								<div class="opt-holder">
+									<div class="opt-by3">
+										<label>
+											<input type="radio" class="opt-color" id="opt-contra-light-8" name="contra-light-type" value="8" onchange="redrawContraOpt();" >
+											<img src="images/icons/8_part.png">
+										</label>
+									</div>
+									<div class="opt-by3">
+										<label>
+											<input type="radio" class="opt-color" id="opt-contra-light-16" name="contra-light-type" value="16" onchange="redrawContraOpt();" >
+											<img src="images/icons/16_part.png">
+										</label>
+									</div>
+									<div class="opt-by3">
+										<label>
+											<input type="radio" class="opt-color" id="opt-contra-light-smooth" name="contra-light-type" value="256" checked onchange="redrawContraOpt();" >
+											<img src="images/icons/256_part.png">
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="contra-bot-row">
+					<div class="field-preview" id="contra-preview">
+						<div class="info-col">
+							<p class="info-label-bar">Red</p>
+							<p class="info-value-bar" id="contra-red-info">-</p>
+							<p class="info-label-bar">Green</p>
+							<p class="info-value-bar" id="contra-green-info">-</p>
+							<p class="info-label-bar">Blue</p>
+							<p class="info-value-bar" id="contra-blue-info">-</p>
+							<p class="info-label-bar">Hex</p>
+							<p class="info-value-bar" id="contra-hex-info">-</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu-bar">
+			<div class="menu-group">
+				<div class="opt-menu">
+					<label>
+						<input type="radio" class="menu-btn" id="menu-cube" name="menu-opt" value="cube" checked onchange="toogleModule();" >
+						<div></div>
+					</label>
+				</div>
+				<div class="opt-menu">
+					<label>
+						<input type="radio" class="menu-btn" id="menu-grad" name="menu-opt" value="grad" onchange="toogleModule();" >
+						<div></div>
+					</label>
+				</div>
+				<div class="opt-menu">
+					<label>
+						<input type="radio" class="menu-btn" id="menu-contra" name="menu-opt" value="contra" onchange="toogleModule();" >
+						<div></div>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="credit-bar">
+			Created By Kevin, 2021
 		</div>
 	</body>
 </html>
