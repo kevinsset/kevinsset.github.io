@@ -24,7 +24,7 @@
 					</tr>
 					<tr id="sudo-row-0">
 						<td colspan="2" class="sudo-field sudo-field-left sudo-field-top">
-							<input class="sudo-input" type="text" id="field_0_0" name="field[][]" value="" maxlength="1" pattern="[0-9]" inputmode="numeric" oninput="this.value=this.value.replace(/[^1-9]/g,'');">
+							<input class="sudo-input" type="text" id="field_0_0" name="field[][]" value="" maxlength="1" pattern="[0-9]" inputmode="numeric" oninput="testinput(this);">
 						</td>
 						<td colspan="2" class="sudo-field sudo-field-top">
 							<input class="sudo-input" type="text" id="field_0_1" name="field[][]" value="" maxlength="1" pattern="[0-9]" inputmode="numeric" oninput="this.value=this.value.replace(/[^1-9]/g,'');">
@@ -310,5 +310,28 @@
 <script>
 window.addEventListener("load", function(){
     resetField();
+});
+
+document.addEventListener("keyup", (e) => {
+	if(e.key == "ArrowLeft" || e.key == "ArrowUp" || e.key == "ArrowRight" || e.key == "ArrowDown"){
+		var elemEntity = document.activeElement;
+		if(elemEntity.tagName.toLowerCase() == "input" && elemEntity.type == "text"){
+			var elemId = elemEntity.id;
+			const elemIds = elemId.split("_");
+			var row = elemIds[1];
+			var column = elemIds[2];
+			if(e.key == "ArrowLeft"){
+				column = (column+9 - 1) % 9;
+			} else if(e.key == "ArrowRight"){
+				column = (column+9 + 1) % 9;
+			} else if(e.key == "ArrowUp"){
+				row = (row+9 - 1) % 9;
+			} else if(e.key == "ArrowDown"){
+				row = (row+9 + 1) % 9;
+			}
+			var nextElem = elemIds[0] + "_" + row + "_" + column;
+			document.getElementById(nextElem).focus();
+		}
+	}
 });
 </script>

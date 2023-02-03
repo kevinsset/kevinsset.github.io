@@ -439,4 +439,8 @@ function resetField() {
 	}
 }
 
+function testinput(elem) {
+	elem.value=elem.value.replace(/[^1-9]/g,'');
+}
+
 
